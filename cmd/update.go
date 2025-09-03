@@ -2,6 +2,8 @@ package cmd
 
 import (
 	"fmt"
+	"strings"
+
 	. "github.com/antleaf/sheepstor/internal"
 	"github.com/spf13/cobra"
 )
@@ -16,8 +18,8 @@ var updateCmd = &cobra.Command{
 		if sites == "all" {
 			Registry.ProcessAllWebsites()
 		} else {
-			website := *Registry.GetWebsiteByID(sites)
-			website.Process()
+			websiteIDList := strings.Split(sites, ",")
+			Registry.ProcessWebsitesList(websiteIDList)
 		}
 	},
 }

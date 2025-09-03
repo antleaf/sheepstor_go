@@ -40,6 +40,16 @@ func (wr *WebsiteRegistry) GetWebsiteByID(id string) *Website {
 	return nil
 }
 
+func (wr *WebsiteRegistry) ProcessWebsitesList(websiteIdList []string) {
+	var wg sync.WaitGroup
+	for _, websiteID := range websiteIdList {
+		website := wr.GetWebsiteByID(websiteID)
+		wg.Add(1)
+		go website.ProcessInSynchronousWorker(&wg)
+	}
+	wg.Wait()
+}
+
 func (wr *WebsiteRegistry) ProcessAllWebsites() {
 	var wg sync.WaitGroup
 	for _, website := range wr.WebSites {
