@@ -2,14 +2,11 @@ package internal
 
 import (
 	"fmt"
-	"github.com/joho/godotenv"
 	"gopkg.in/yaml.v3"
 	"os"
 )
 
-func InitialiseApplication() {
-	_ = godotenv.Load()
-	configFilePath := os.Getenv("SHEEPSTOR_CONFIG_FILE_PATH")
+func InitialiseApplication(configFilePath string) {
 	configData, err := os.ReadFile(configFilePath)
 	err = yaml.Unmarshal(configData, &Registry)
 	if err != nil {

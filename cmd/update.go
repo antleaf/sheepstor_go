@@ -11,7 +11,7 @@ var sites string
 var updateCmd = &cobra.Command{
 	Use: "update",
 	Run: func(cmd *cobra.Command, args []string) {
-		InitialiseApplication()
+		InitialiseApplication(ConfigFilePath)
 		Log.Info(fmt.Sprintf("Running as CLI Process, updating website(s): '%s'...", sites))
 		if sites == "all" {
 			Registry.ProcessAllWebsites()

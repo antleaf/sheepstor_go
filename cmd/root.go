@@ -6,6 +6,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var ConfigFilePath string
 var Debug bool
 
 var rootCmd = &cobra.Command{
@@ -22,4 +23,5 @@ func Execute() {
 
 func init() {
 	rootCmd.PersistentFlags().BoolVarP(&Debug, "debug", "", false, "--debug=true|false")
+	rootCmd.PersistentFlags().StringVarP(&ConfigFilePath, "config", "", "", "--config=path-to-config.yaml")
 }
