@@ -6,7 +6,6 @@ require (
 	github.com/go-chi/chi/v5 v5.2.3
 	github.com/go-git/go-git/v5 v5.16.2
 	github.com/google/go-github/v71 v71.0.0
-	github.com/joho/godotenv v1.5.1
 	github.com/spf13/cobra v1.10.1
 	go.uber.org/zap v1.27.0
 	gopkg.in/yaml.v3 v3.0.1
