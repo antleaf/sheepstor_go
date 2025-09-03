@@ -1,0 +1,5 @@
+.DS_Store
+.idea/
+binaries/
+/config/config.yaml
+/.run/
